@@ -1,0 +1,11 @@
+<div *ngIf="alunoSelecionado"> <!-- Isso irá fazer esse elemento aparecer apenas quando a propriedade  alunoSelecionado um valor, que na prática retornará um true ara o *ngIF -->
+  <h2>{{ alunoSelecionado.nome | uppercase }} </h2> 
+  <div><span>id: </span>{{ alunoSelecionado.id }}</div>
+  <div><span>name: </span>{{ alunoSelecionado.nome }}</div>
+</div>
+<hr>
+<ul class="lista-alunos" >
+  <li *ngFor="let aluno of alunos" (click)="selecionaAluno(aluno)" [class.selecionado]="aluno === alunoSelecionado">
+    <span> {{ aluno.id }} </span> {{aluno.nome }}
+  </li>
+</ul>
